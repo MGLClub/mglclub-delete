@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MGL Club — Account & Data Deletion</title>
+  <meta name="description" content="Request deletion of your MGL Club account and associated data." />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b0f19; --card:#12182b; --muted:#9fb0c3; --text:#e6eef8; --accent:#5dd0ff; --accent-2:#7cffb2; --danger:#ff6b6b;
+      --border:rgba(255,255,255,0.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg, #0b0f19, #0b1222); color:var(--text)}
+    .container{max-width:980px; margin:0 auto; padding:32px 16px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 24px rgba(93,208,255,0.2)}
+    h1{font-size:28px; margin:0}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:20px; padding:20px; box-shadow:0 6px 24px rgba(0,0,0,0.25); margin-bottom:18px}
+    h2{font-size:22px; margin:0 0 12px}
+    p{color:var(--muted); line-height:1.6}
+    a{color:var(--accent)}
+    .grid{display:grid; grid-template-columns:1fr; gap:16px}
+    @media (min-width:900px){.grid{grid-template-columns: 1.1fr .9fr}}
+    label{display:block; font-weight:600; margin:10px 0 6px}
+    input, select, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0e1426; color:var(--text)}
+    textarea{min-height:120px}
+    .row{display:grid; grid-template-columns:1fr; gap:12px}
+    @media (min-width:600px){.row{grid-template-columns:1fr 1fr}}
+    .muted{font-size:13px;color:var(--muted)}
+    .btns{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{appearance:none; border:none; border-radius:14px; padding:12px 16px; cursor:pointer; font-weight:700; letter-spacing:.2px}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),#2bbcff); color:#00131a}
+    .btn-ghost{background:transparent; border:1px solid var(--border); color:var(--text)}
+    .btn-danger{background:linear-gradient(135deg,#ff8f8f,var(--danger)); color:#2b0000}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{border:1px solid var(--border); background:#0f1529; padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
+    .notice{background:rgba(93,208,255,0.1); border-color:rgba(93,208,255,0.35)}
+    .danger{background:rgba(255,107,107,0.08); border-color:rgba(255,107,107,0.35)}
+    .lang-toggle{display:flex; gap:8px; align-items:center}
+    .lang-toggle button{padding:8px 12px; border-radius:999px; border:1px solid var(--border); background:#0e1426; color:var(--text); cursor:pointer}
+    .lang-toggle button.active{border-color:var(--accent); box-shadow:0 0 0 2px rgba(93,208,255,0.15) inset}
+    .footer{opacity:.7; font-size:13px; margin-top:24px}
+    .required{color:var(--danger)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>MGL Club — Account & Data Deletion</h1>
+      </div>
+      <div class="lang-toggle" aria-label="Language toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+        <button id="btn-mn" onclick="setLang('mn')">Монгол</button>
+      </div>
+    </header>
+
+    <section class="card notice" id="info-en">
+      <h2>How to delete your account</h2>
+      <p>
+        You can permanently delete your MGL Club account and associated data using the options below.
+        Deletion is irreversible. Some records may be retained where required by law (e.g., fraud prevention, legal obligations) — see details at the bottom of this page.
+      </p>
+      <div class="chips" aria-label="What will be deleted">
+        <span class="chip">Profile & username</span>
+        <span class="chip">Moments & uploads</span>
+        <span class="chip">Chats & rooms (where feasible)</span>
+        <span class="chip">Purchases & gifts history*</span>
+      </div>
+      <p class="muted">*Financial records may be retained as required by tax/financial regulations.</p>
+    </section>
+
+    <section class="card notice" id="info-mn" style="display:none">
+      <h2>Дансаа хэрхэн устгах вэ</h2>
+      <p>
+        Та доорх аргуудаар MGL Club дахь бүртгэл болон холбогдох өгөгдлөө бүр мөсөн устгаж болно.
+        Энэ үйлдэл буцаах боломжгүй. Зарим бичиг баримтыг хууль, санхүүгийн зохицуулалтын дагуу хадгалах шаардлагатай байж болно (жишээ нь: луйвраас сэргийлэх, татварын бүртгэл).
+      </p>
+      <div class="chips" aria-label="Юу устах вэ">
+        <span class="chip">Профайл, хэрэглэгчийн нэр</span>
+        <span class="chip">Moments & байршуулсан контент</span>
+        <span class="chip">Чат & өрөөний мэдээлэл (боломжтой хэмжээнд)</span>
+        <span class="chip">Худалдан авалт, бэлгийн түүх*</span>
+      </div>
+      <p class="muted">*Санхүүгийн баримтуудыг татвар, нягтлан бодох бүртгэлийн хуульд заасны дагуу хадгалж болзошгүй.</p>
+    </section>
+
+    <div class="grid">
+      <!-- LEFT: Form (email-based, no backend needed) -->
+      <section class="card" id="form-en">
+        <h2>Request deletion via email</h2>
+        <p class="muted">Fill this form and it will open your email app with all details pre-filled. No login required.</p>
+        <form id="deleteForm" onsubmit="return composeEmail()">
+          <div class="row">
+            <div>
+              <label>Full name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="name" required placeholder="Your full name" />
+            </div>
+            <div>
+              <label>Account email <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Username / User ID <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="userid" required placeholder="@yourhandle or numeric ID" />
+            </div>
+            <div>
+              <label>Country/Region</label>
+              <input type="text" id="country" placeholder="e.g., Mongolia" />
+            </div>
+          </div>
+          <label>Reason (optional)</label>
+          <textarea id="reason" placeholder="Tell us anything we should know (optional)"></textarea>
+          <label>Additional information (optional)</label>
+          <textarea id="notes" placeholder="e.g., linked phone, last login date"></textarea>
+          <div style="margin:12px 0">
+            <label><input type="checkbox" id="confirmOwner" required /> I confirm I am the account owner.</label><br/>
+            <label><input type="checkbox" id="confirmPermanent" required /> I understand deletion is permanent and cannot be undone.</label>
+          </div>
+          <div class="btns">
+            <button class="btn btn-primary" type="submit">Generate email request</button>
+            <a class="btn btn-ghost" href="mailto:support@mglclub.live?subject=Account%20Deletion%20Request%20%E2%80%94%20MGL%20Club" id="directMail">Email support directly</a>
+          </div>
+          <p class="muted">Support email: <a href="mailto:support@mglclub.live">support@mglclub.live</a></p>
+        </form>
+      </section>
+
+      <section class="card" id="form-mn" style="display:none">
+        <h2>Имэйлээр хүсэлт илгээх</h2>
+        <p class="muted">Энэ маягтыг бөглөвөл таны имэйл програм нээгдэж, мэдээлэл автоматаар бөглөгдөнө.</p>
+        <form onsubmit="return composeEmail('mn')">
+          <div class="row">
+            <div>
+              <label>Овог, нэр <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="name-mn" required placeholder="Таны овог нэр" />
+            </div>
+            <div>
+              <label>Бүртгэлийн имэйл <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email-mn" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Хэрэглэгчийн нэр / ID <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="userid-mn" required placeholder="@танайнэр эсвэл дугаар" />
+            </div>
+            <div>
+              <label>Улс / Бүс</label>
+              <input type="text" id="country-mn" placeholder="Ж: Mongolia" />
+            </div>
+          </div>
+          <label>Шалтгаан (заавал биш)</label>
+          <textarea id="reason-mn" placeholder="Нэмэлт тайлбар (заавал биш)"></textarea>
+          <label>Нэмэлт мэдээлэл (заавал биш)</label>
+          <textarea id="notes-mn" placeholder="Ж: холбосон утас, сүүлийн нэвтрэлт"></textarea>
+          <div style="margin:12px 0">
+            <label><input type="checkbox" id="confirmOwner-mn" required /> Би уг бүртгэлийн жинхэнэ эзэмшигч мөн.</label><br/>
+            <label><input type="checkbox" id="confirmPermanent-mn" required /> Устгалт буцаах боломжгүй гэдгийг ойлгож байна.</label>
+          </div>
+          <div class="btns">
+            <button class="btn btn-primary" type="submit">Имэйл үүсгэх</button>
+            <a class="btn btn-ghost" href="mailto:support@mglclub.live?subject=%D0%94%D0%B0%D0%BD%D1%81%20%D1%83%D1%81%D1%82%D0%B3%D0%B0%D1%85%20%D1%85%D2%AF%D1%81%D1%8D%D0%BB%D1%82%20%E2%80%94%20MGL%20Club">Шууд имэйл илгээх</a>
+          </div>
+          <p class="muted">Дэмжлэгийн имэйл: <a href="mailto:support@mglclub.live">support@mglclub.live</a></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- RIGHT: Guidance & policy notes -->
+    <section class="card danger" id="policy-en">
+      <h2>What happens next</h2>
+      <ul>
+        <li>We’ll verify ownership via your account email or a one-time code.</li>
+        <li>Once verified, we’ll queue your account for deletion and confirm by email.</li>
+        <li>Typical processing time: 7–30 days depending on data backups and legal obligations.</li>
+        <li>Certain records may be retained if required by law (e.g., payments, fraud prevention).</li>
+      </ul>
+      <p class="muted">If you deleted the app from your device, your account still exists until this process is complete.</p>
+      <div class="btns">
+        <a class="btn btn-ghost" href="#faq">Read FAQ</a>
+        <a class="btn btn-ghost" href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="card danger" id="policy-mn" style="display:none">
+      <h2>Дараагийн алхам</h2>
+      <ul>
+        <li>Бид эзэмшигчийг имэйл эсвэл нэг удаагийн кодоор баталгаажуулна.</li>
+        <li>Баталгаажсаны дараа таны бүртгэлийг устгалтад оруулж, имэйлээр мэдэгдэнэ.</li>
+        <li>Ерөнхий хугацаа: 7–30 хоног (нөөцлөлт, хууль эрх зүйн шаардлагаас хамаарна).</li>
+        <li>Зарим бичлэгийг хуульд заасны дагуу хадгалж болзошгүй (ж: төлбөр тооцоо, луйвраас сэргийлэх).</li>
+      </ul>
+      <p class="muted">Апп-аа устгасан ч данс идэвхтэй хэвээр байх тул энэ үйл явцыг заавал дуусгана уу.</p>
+      <div class="btns">
+        <a class="btn btn-ghost" href="#faq">Түгээмэл асуултууд</a>
+        <a class="btn btn-ghost" href="/privacy" target="_blank" rel="noopener">Нууцлалын бодлого</a>
+      </div>
+    </section>
+
+    <section class="card" id="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is there an in‑app delete option?</summary>
+        <p>Yes. Go to <strong>Profile → Settings → Account → Delete Account</strong> in the MGL Club app (latest version). If you cannot log in, use the email form above.</p>
+      </details>
+      <details>
+        <summary>What data is deleted?</summary>
+        <p>Profile, username, Moments, messages (where feasible), purchases & gifts history, and other account‑linked data in our systems. Data in other members’ content (e.g., quotes or replies) may be anonymized.</p>
+      </details>
+      <details>
+        <summary>What is retained?</summary>
+        <p>Records required by law (e.g., transaction records, anti‑fraud logs) may be retained for the minimum period required and are then deleted or anonymized.</p>
+      </details>
+      <details>
+        <summary>How do I cancel a deletion request?</summary>
+        <p>Reply to the confirmation email as soon as possible. If deletion has already started, we may not be able to restore your account.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>Email <a href="mailto:support@mglclub.live">support@mglclub.live</a></p>
+      </details>
+    </section>
+
+    <p class="footer">© <span id="year"></span> MGL Club. All rights reserved.</p>
+  </div>
+
+  <script>
+    function setLang(lang){
+      const en = ['info-en','form-en','policy-en'];
+      const mn = ['info-mn','form-mn','policy-mn'];
+      const btnEn = document.getElementById('btn-en');
+      const btnMn = document.getElementById('btn-mn');
+      if(lang==='mn'){
+        en.forEach(id=>document.getElementById(id).style.display='none');
+        mn.forEach(id=>document.getElementById(id).style.display='block');
+        btnEn.classList.remove('active'); btnMn.classList.add('active');
+      } else {
+        mn.forEach(id=>document.getElementById(id).style.display='none');
+        en.forEach(id=>document.getElementById(id).style.display='block');
+        btnMn.classList.remove('active'); btnEn.classList.add('active');
+      }
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    function composeEmail(lang){
+      const isMn = lang==='mn';
+      const g = (id)=>document.getElementById(isMn?`${id}-mn`:id);
+      const name = g('name').value.trim();
+      const email = g('email').value.trim();
+      const userid = g('userid').value.trim();
+      const country = g('country').value.trim();
+      const reason = g('reason').value.trim();
+      const notes = g('notes').value.trim();
+      const owner = g('confirmOwner').checked;
+      const perm = g('confirmPermanent').checked;
+      if(!name || !email || !userid || !owner || !perm){
+        alert(isMn? 'Заавал бөглөх талбаруудыг шалгана уу.' : 'Please fill required fields and confirm the checkboxes.');
+        return false;
+      }
+      const subject = encodeURIComponent(isMn? 'Данс устгах хүсэлт — MGL Club' : 'Account Deletion Request — MGL Club');
+      const bodyLines = [
+        (isMn? 'Сайн байна уу, MGL Club дэмжлэгээ. Дараах бүртгэлийг устгах хүсэлт гаргаж байна.':'Hello MGL Club Support. I would like to request deletion of the following account.'),
+        '',
+        `Name: ${name}`,
+        `Account email: ${email}`,
+        `Username / ID: ${userid}`,
+        country? `Country/Region: ${country}` : '',
+        reason? (isMn? `Шалтгаан: ${reason}` : `Reason: ${reason}`) : '',
+        notes? (isMn? `Нэмэлт мэдээлэл: ${notes}` : `Additional info: ${notes}`) : '',
+        '',
+        (isMn? 'Би уг бүртгэлийн эзэмшигч гэдгээ баталгаажуулж, устгалт буцаах боломжгүйг ойлгож байна.' : 'I confirm I am the account owner and understand this action is permanent.'),
+        '',
+        (isMn? 'Баярлалаа.' : 'Thank you.')
+      ].filter(Boolean).join('%0D%0A');
+      const mailto = `mailto:support@mglclub.live?subject=${subject}&body=${bodyLines}`;
+      window.location.href = mailto;
+      return false; // prevent actual form submit
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
